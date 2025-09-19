@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CreditCard, Home, Menu, Wallet } from "../../components/ui/Icons";
-import SearchBar from "./SearchBar";
+import HeaderActions from "./HeaderActions";
 import { NavLink, NavDropdown, MobileNavLink, MobileSubLink } from "./Navigation";
 import pageInfo from "../../data/pageInfo";
 import logo from '../../assets/razorpay.png'; 
@@ -52,8 +52,8 @@ const Header = () => {
         </div>
         
         {/* Right Side */}
-        <div className="flex items-center space-x-2 lg:space-x-4">
-          <SearchBar />
+        <div className="flex items-center h-full">
+          <HeaderActions />
         </div>
       </div>
       

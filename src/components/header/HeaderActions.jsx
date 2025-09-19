@@ -56,8 +56,8 @@ const HeaderActions = () => {
 
       {/* Mobile Search Overlay */}
       {isSearchOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 lg:hidden">
-          <div className="bg-white p-4">
+        <div className="fixed inset-x-0 top-0 bg-white z-50 lg:hidden shadow-lg">
+          <div className="p-4">
             <div className="flex items-center space-x-3">
               <button
                 onClick={() => setIsSearchOpen(false)}
