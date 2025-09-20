@@ -1,9 +1,19 @@
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
 import pageInfo from './data/pageInfo'
+import { useState } from 'react';
+import { sidebarItems, paymentProducts, customerProducts, accountSettings } from "./data/sidebarData";
+import Page from './components/default/Page';
+
 
 
 function App() {
+  const [pageTitle, setPageTitle] = useState("Razorpay Home");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const handleSidebarClick = (title) => setPageTitle(title);
+
+  const allItems = [...sidebarItems, ...paymentProducts, ...customerProducts, ...accountSettings];
 
   return (
     <>
@@ -13,7 +23,7 @@ function App() {
               <Route
                 key={key}
                 path={`/${key}`}
-                element={<Dashboard page={key} description={pageInfo[key].description}/>}
+                element={<Dashboard isHome={true} page={key} description={pageInfo[key].description}/>}
               />
             ))}
 
@@ -24,13 +34,16 @@ function App() {
                     <Route
                       key={`${key}-${subKey}`}
                       path={`/${key}/${subKey}`}
-                      element={<Dashboard page={subKey} description={pageInfo[key].subcategories[subKey].description}/>}
+                      element={<Dashboard isHome={true} page={subKey} description={pageInfo[key].subcategories[subKey].description}/>}
                     />
                   ))
                 : null
             )}
 
-        {/* <Route path='/' element={<Dashboard page='dashboard'/>}/> */}
+        <Route path='/' element={<Dashboard page='dashboard' isHome={true}/>}/>
+        {allItems.map(item => (
+                <Route key={item.path} path={item.path} element={<Dashboard title={item.label} />} />
+              ))}
 
       </Routes>
     </Router>

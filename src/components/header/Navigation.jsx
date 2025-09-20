@@ -14,7 +14,7 @@ const NavLink = ({ href, icon: Icon, children, active = false }) => (
   </a>
 );
 
-const DropdownMenu = ({ icon: Icon, label, pageKey }) => {
+const DropdownMenu = ({ icon: Icon, label, pageKey, active = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const subcategories = pageInfo[pageKey]?.subcategories || {};
@@ -34,7 +34,9 @@ const DropdownMenu = ({ icon: Icon, label, pageKey }) => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center whitespace-nowrap text-[8px] sm:text-xs text-gray-600 hover:text-gray-900 transition-colors px-2 py-3 leading-none"
+        className={`flex items-center whitespace-nowrap text-[8px] sm:text-xs transition-colors hover:text-gray-900 px-2 py-3 leading-none ${
+          active ? "nav-active" : "text-gray-600"
+        }`}
       >
         {Icon && <Icon className="w-4 h-4 pr-1" />}
         {label}
@@ -43,32 +45,31 @@ const DropdownMenu = ({ icon: Icon, label, pageKey }) => {
       </button>
 
       {isOpen && Object.keys(subcategories).length > 0 && (
-       <div className="absolute top-full left-0 mt-2 w-64 dropdown shadow-lg rounded-md z-50">
-       <div className="py-2">
-         {Object.entries(subcategories).map(([subKey, subData], index) => (
-           <React.Fragment key={subKey}>
-             <a
-               href={`/${pageKey}/${subKey}`}
-               className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
-               onClick={() => setIsOpen(false)}
-             >
-               <div className="font-medium">{subData.title}</div>
-             </a>
-             {/* Separation line except for last item */}
-             {index < Object.entries(subcategories).length - 1 && (
-               <div className="mx-2 my-1 border-t border-gray-300"></div>
-             )}
-           </React.Fragment>
-         ))}
-       </div>
-     </div>
-     
+        <div className="absolute top-full left-0 mt-2 w-64 dropdown shadow-lg rounded-md z-50">
+          <div className="py-2">
+            {Object.entries(subcategories).map(([subKey, subData], index) => (
+              <React.Fragment key={subKey}>
+                <a
+                  href={`/${pageKey}/${subKey}`}
+                  className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <div className="font-medium">{subData.title}</div>
+                </a>
+                {/* Separation line except for last item */}
+                {index < Object.entries(subcategories).length - 1 && (
+                  <div className="mx-2 my-1 border-t border-gray-300"></div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
       )}
     </div>
   );
 };
 
-const NavDropdown = ({ icon: Icon, label, pageKey }) => {
+const NavDropdown = ({ icon: Icon, label, pageKey, active = false }) => {
   const subcategories = pageInfo[pageKey]?.subcategories || {};
   
   if (Object.keys(subcategories).length === 0) {
@@ -76,7 +77,9 @@ const NavDropdown = ({ icon: Icon, label, pageKey }) => {
     return (
       <a
         href={`/${pageKey}`}
-        className="flex items-center whitespace-nowrap text-[8px] sm:text-xs text-gray-600 hover:text-gray-900 transition-colors px-2 py-3 leading-none"
+        className={`flex items-center whitespace-nowrap text-[8px] sm:text-xs transition-colors hover:text-gray-900 px-2 py-3 leading-none ${
+          active ? "nav-active" : "text-gray-600"
+        }`}
       >
         {Icon && <Icon className="w-4 h-4 pr-1" />}
         {label}
@@ -85,7 +88,7 @@ const NavDropdown = ({ icon: Icon, label, pageKey }) => {
     );
   }
 
-  return <DropdownMenu icon={Icon} label={label} pageKey={pageKey} />;
+  return <DropdownMenu icon={Icon} label={label} pageKey={pageKey} active={active} />;
 };
 
 const MobileNavLink = ({ href, icon: Icon, children, active = false, hasSubcategories = false, onToggle, isExpanded = false }) => {
@@ -123,10 +126,14 @@ const MobileNavLink = ({ href, icon: Icon, children, active = false, hasSubcateg
   );
 };
 
-const MobileSubLink = ({ href, children }) => (
+const MobileSubLink = ({ href, children, active = false }) => (
   <a
     href={href}
-    className="block px-6 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+    className={`block px-6 py-2 text-sm transition-colors ${
+      active 
+        ? "bg-blue-50 text-blue-600 font-medium" 
+        : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+    }`}
   >
     {children}
   </a>

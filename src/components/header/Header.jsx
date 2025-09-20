@@ -9,12 +9,23 @@ import logo from '../../assets/razorpay.png';
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedMobileItems, setExpandedMobileItems] = useState({});
-
+  
+  // Get current path to determine active link
+  const currentPath = window.location.pathname;
+  
   const toggleMobileSubmenu = (key) => {
     setExpandedMobileItems(prev => ({
       ...prev,
       [key]: !prev[key]
     }));
+  };
+
+  // Helper function to check if a link is active
+  const isActive = (path) => {
+    if (path === '/dashboard' && (currentPath === '/' || currentPath === '/dashboard')) {
+      return true;
+    }
+    return currentPath === path || currentPath.startsWith(path + '/');
   };
 
   return (
@@ -31,15 +42,15 @@ const Header = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex space-x-2 items-center">
-            <NavLink href="/dashboard" icon={Home} active>
+            <NavLink href="/dashboard" icon={Home} active={isActive('/dashboard')}>
               Razorpay Home
             </NavLink>
-            <NavLink href="/payments" icon={CreditCard}>
+            <NavLink href="/payments" icon={CreditCard} active={isActive('/payments')}>
               Payments
             </NavLink>
-            <NavDropdown label="Banking" pageKey="banking" />
-            <NavDropdown label="Payroll" icon={Wallet} pageKey="payroll" />
-            <NavDropdown label="More" icon={CreditCard} pageKey="more" />
+            <NavDropdown label="Banking" pageKey="banking" active={isActive('/banking')} />
+            <NavDropdown label="Payroll" icon={Wallet} pageKey="payroll" active={isActive('/payroll')} />
+            <NavDropdown label="More" icon={CreditCard} pageKey="more" active={isActive('/more')} />
           </nav>
           
           {/* Mobile Menu Button */}
@@ -62,12 +73,12 @@ const Header = () => {
         <div className="lg:hidden mt-3 pt-3 border-t border-gray-200">
           <nav className="space-y-1">
             {/* Dashboard */}
-            <MobileNavLink href="/dashboard" icon={Home} active>
+            <MobileNavLink href="/dashboard" icon={Home} active={isActive('/dashboard')}>
               Razorpay Home
             </MobileNavLink>
             
             {/* Payments */}
-            <MobileNavLink href="/payments" icon={CreditCard}>
+            <MobileNavLink href="/payments" icon={CreditCard} active={isActive('/payments')}>
               Payments
             </MobileNavLink>
             
@@ -77,13 +88,14 @@ const Header = () => {
                 hasSubcategories={true}
                 onToggle={() => toggleMobileSubmenu('banking')}
                 isExpanded={expandedMobileItems.banking}
+                active={isActive('/banking')}
               >
                 Banking
               </MobileNavLink>
               {expandedMobileItems.banking && pageInfo.banking.subcategories && (
                 <div className="ml-4 mt-1 space-y-1">
                   {Object.entries(pageInfo.banking.subcategories).map(([subKey, subData]) => (
-                    <MobileSubLink key={subKey} href={`/banking/${subKey}`}>
+                    <MobileSubLink key={subKey} href={`/banking/${subKey}`} active={isActive(`/banking/${subKey}`)}>
                       {subData.title}
                     </MobileSubLink>
                   ))}
@@ -97,13 +109,14 @@ const Header = () => {
                 hasSubcategories={true}
                 onToggle={() => toggleMobileSubmenu('payroll')}
                 isExpanded={expandedMobileItems.payroll}
+                active={isActive('/payroll')}
               >
                 Payroll
               </MobileNavLink>
               {expandedMobileItems.payroll && pageInfo.payroll.subcategories && (
                 <div className="ml-4 mt-1 space-y-1">
                   {Object.entries(pageInfo.payroll.subcategories).map(([subKey, subData]) => (
-                    <MobileSubLink key={subKey} href={`/payroll/${subKey}`}>
+                    <MobileSubLink key={subKey} href={`/payroll/${subKey}`} active={isActive(`/payroll/${subKey}`)}>
                       {subData.title}
                     </MobileSubLink>
                   ))}
@@ -117,13 +130,14 @@ const Header = () => {
                 hasSubcategories={true}
                 onToggle={() => toggleMobileSubmenu('more')}
                 isExpanded={expandedMobileItems.more}
+                active={isActive('/more')}
               >
                 More
               </MobileNavLink>
               {expandedMobileItems.more && pageInfo.more.subcategories && (
                 <div className="ml-4 mt-1 space-y-1">
                   {Object.entries(pageInfo.more.subcategories).map(([subKey, subData]) => (
-                    <MobileSubLink key={subKey} href={`/more/${subKey}`}>
+                    <MobileSubLink key={subKey} href={`/more/${subKey}`} active={isActive(`/more/${subKey}`)}>
                       {subData.title}
                     </MobileSubLink>
                   ))}
