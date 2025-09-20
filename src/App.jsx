@@ -40,7 +40,7 @@ function App() {
                 : null
             )}
 
-        <Route path='/' element={<Dashboard page='dashboard' isHome={true}/>}/>
+        <Route path='/' element={<Dashboard page='dashboard' description={pageInfo['dashboard'].description} isHome={true}/>}/>
         {allItems.map(item => (
                 <Route key={item.path} path={item.path} element={<Dashboard title={item.label} />} />
               ))}

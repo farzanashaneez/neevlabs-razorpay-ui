@@ -20,10 +20,10 @@ const MetricCard = ({ title, value, percentage, trend, comparison, isActive, onC
     return (
       <div 
         onClick={onClick}
-        className={`rounded-lg p-6 border cursor-pointer transition-all duration-200 hover:shadow-md ${
+        className={`p-6  cursor-pointer transition-all duration-200 hover:shadow-md ${
           isActive 
-            ? 'bg-blue-50 border-blue-200 shadow-sm' 
-            : 'bg-white border-gray-200 hover:border-gray-300'
+            ? ' bg-white border-b-1 border-b-blue-600 shadow-sm' 
+            : 'bg-insight border-gray-200 hover:border-gray-300'
         }`}
       >
         <div className="flex items-center justify-between mb-4">

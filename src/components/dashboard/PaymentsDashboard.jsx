@@ -35,7 +35,9 @@ const PaymentsDashboard = () => {
         </div>
 
         {/* Overview Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="max-w-7xl mx-auto ">
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
           <MetricCard
             title="Collected Amount"
             value={data.overview.collectedAmount.value}
@@ -67,6 +69,7 @@ const PaymentsDashboard = () => {
 
         {/* Chart */}
         <LineChart data={getCurrentChartData()} activeMetric={activeMetric} />
+        </div>
 
         {/* Top Insights */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

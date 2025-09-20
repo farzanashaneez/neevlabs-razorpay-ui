@@ -22,10 +22,10 @@ const Sidebar = ({ isOpen, onToggle, currentPath = '/', onNavigate }) => {
     if (onNavigate) {
       onNavigate(path, label);
     }
-    // Close sidebar on mobile after navigation
-    if (window.innerWidth < 1024) {
-      onToggle();
-    }
+    // // Close sidebar on mobile after navigation
+    // if (window.innerWidth < 1024) {
+    //   onToggle();
+    // }
   };
 
   return (

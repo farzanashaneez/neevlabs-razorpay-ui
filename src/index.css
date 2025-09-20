@@ -6,7 +6,7 @@
   --color-bg-active: 248, 250, 252;
   --color-bg-header: 227, 234, 243;
   --color-bg-sidebar-active: 230, 236, 252;
-  --color-bg-button-right: 231, 236, 239;
+  --color-bg-button-right: 221, 226, 233;
   --color-bg-input-right: 255, 255, 255;
   --color-bg-card-non-active: 241, 245, 249;
 
@@ -34,6 +34,10 @@
     background-color:rgb(var(--color-bg-active));
    }
    .dropdown{
+    background-color: rgb(var(--color-bg-header));
+
+   }
+   .bg-insight{
     background-color: rgb(var(--color-bg-header));
 
    }
