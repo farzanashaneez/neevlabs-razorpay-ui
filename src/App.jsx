@@ -2,7 +2,7 @@ import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
 import pageInfo from './data/pageInfo'
 import { useState } from 'react';
-import { sidebarItems, paymentProducts, customerProducts, accountSettings } from "./data/sidebarData";
+import { sidebarItems, paymentProducts, customerProducts, accountSettings, BankingProducts } from "./data/sidebarData";
 import Page from './components/default/Page';
 
 
@@ -13,7 +13,7 @@ function App() {
 
   const handleSidebarClick = (title) => setPageTitle(title);
 
-  const allItems = [...sidebarItems, ...paymentProducts, ...customerProducts, ...accountSettings];
+  const allItems = [...sidebarItems, ...paymentProducts, ...customerProducts, ...accountSettings,...BankingProducts];
 
   return (
     <>
@@ -22,8 +22,8 @@ function App() {
             {Object.keys(pageInfo).map((key) => (
               <Route
                 key={key}
-                path={`/${key}`}
-                element={<Dashboard isHome={true} page={key} description={pageInfo[key].description}/>}
+                path={`/home/${key}`}
+                element={<Dashboard isHome={true} page={pageInfo[key].title} description={pageInfo[key].description}/>}
               />
             ))}
 
@@ -33,16 +33,16 @@ function App() {
                 ? Object.keys(pageInfo[key].subcategories).map((subKey) => (
                     <Route
                       key={`${key}-${subKey}`}
-                      path={`/${key}/${subKey}`}
-                      element={<Dashboard isHome={true} page={subKey} description={pageInfo[key].subcategories[subKey].description}/>}
+                      path={`/home/${key}/${subKey}`}
+                      element={<Dashboard isHome={true} page={pageInfo[key].subcategories[subKey].title} description={pageInfo[key].subcategories[subKey].description}/>}
                     />
                   ))
                 : null
             )}
 
-        <Route path='/' element={<Dashboard page='dashboard' description={pageInfo['dashboard'].description} isHome={true}/>}/>
+        <Route path='/' element={<Dashboard page='Home' description={pageInfo['dashboard'].description} />}/>
         {allItems.map(item => (
-                <Route key={item.path} path={item.path} element={<Dashboard title={item.label} />} />
+                <Route key={item.path} path={item.path} element={<Dashboard title={item.label}  isHome={item.path==='/home'?true:false}/>} />
               ))}
 
       </Routes>

@@ -10,6 +10,7 @@ const SidebarSection = ({
   onItemClick
 }) => {
   const [expanded, setExpanded] = useState(false);
+  console.log("===>",currentPath.split('/'))
 
   const visibleItems = expanded ? items : items.slice(0, showMore);
 
@@ -28,7 +29,8 @@ const SidebarSection = ({
           <SidebarItem
             key={index}
             {...item}
-            active={currentPath === item.path}
+            active={currentPath === item.path ||
+              currentPath.startsWith(item.path + "/")}
             onClick={onItemClick}
           />
         ))}

@@ -11,7 +11,6 @@ import {
   Settings,
   X
 } from '../../components/ui/Icons';
-import Card from '../ui/Card';
 import { sidebarItems, paymentProducts, customerProducts, accountSettings, BankingProducts } from '../../data/sidebarData';
 import SidebarSection from './SidebarSection';
 
@@ -22,10 +21,7 @@ const Sidebar = ({ isOpen, onToggle, currentPath = '/', onNavigate }) => {
     if (onNavigate) {
       onNavigate(path, label);
     }
-    // // Close sidebar on mobile after navigation
-    // if (window.innerWidth < 1024) {
-    //   onToggle();
-    // }
+  
   };
 
   return (

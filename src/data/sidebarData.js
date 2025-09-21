@@ -1,8 +1,7 @@
-// Updated sidebarData.js
 import { Home, CreditCard, FileText, Shield, Link2, Users, Building, Settings, X } from '../components/ui/Icons';
 
 export const sidebarItems = [
-  { icon: Home, label: 'Home', path: '/' },
+  { icon: Home, label: 'Home', path: '/home' },
   { icon: CreditCard, label: 'Transactions', path: '/transactions' },
   { icon: FileText, label: 'Settlements', path: '/settlements' },
   { icon: FileText, label: 'Reports', path: '/reports' },

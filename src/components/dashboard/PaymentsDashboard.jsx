@@ -25,7 +25,11 @@ const PaymentsDashboard = () => {
     <div className="min-h-screen bg-gray-50 p-4 md:p-6">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      
+
+        {/* Overview Cards */}
+        <div className="max-w-7xl mx-auto bg-white p-3 shadow-md rounded-lg">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-2">
           <h1 className="text-2xl font-bold text-gray-900">Payments Overview</h1>
           <DateRangePicker 
             dateRange={data.dateRange} 
@@ -33,9 +37,6 @@ const PaymentsDashboard = () => {
             onPeriodChange={setPeriod}
           />
         </div>
-
-        {/* Overview Cards */}
-        <div className="max-w-7xl mx-auto ">
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
           <MetricCard
@@ -72,7 +73,9 @@ const PaymentsDashboard = () => {
         </div>
 
         {/* Top Insights */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className='mx-auto bg-white p-3 shadow-md rounded-lg'>
+
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-2">
           <h2 className="text-xl font-bold text-gray-900">Top Insights</h2>
           <DateRangePicker 
             dateRange={data.dateRange} 
@@ -83,6 +86,7 @@ const PaymentsDashboard = () => {
 
         {/* Insights Grid - Proper Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
           {/* Payment Count */}
           <InsightCard
             title="Payment count"
@@ -133,6 +137,11 @@ const PaymentsDashboard = () => {
             />
           </div>
         </div>
+        </div>
+       
+
+
+
       </div>
     </div>
   );

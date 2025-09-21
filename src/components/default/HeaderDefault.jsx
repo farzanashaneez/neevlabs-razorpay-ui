@@ -5,8 +5,8 @@ import HeaderActions from "../header/HeaderActions";
 
 const HeaderDefault = ({ title, onMobileMenuToggle }) => {
   return (
-    <header className="header-style border-b border-gray-200 shadow-sm pb-0 bg-white">
-      <div className="flex items-center justify-between px-4 lg:px-8 py-2">
+    <header className="header-style border-b border-gray-200 shadow-sm  bg-white py-1">
+      <div className="flex items-center justify-between pl-4 lg:pl-8 py-0 ">
         {/* Left: Mobile menu + Logo + Title */}
         <div className="flex items-center space-x-3 flex-1 min-w-0">
           {/* Mobile menu toggle */}
@@ -27,9 +27,9 @@ const HeaderDefault = ({ title, onMobileMenuToggle }) => {
           
           {/* Title - only show on larger screens to save space */}
           {title && (
-            <h1 className="hidden sm:block text-lg lg:text-xl font-semibold text-gray-900 truncate">
+            <h3 className="hidden sm:block text-lg lg:text-xl font-semibold text-gray-900 truncate">
               {title}
-            </h1>
+            </h3>
           )}
         </div>
 

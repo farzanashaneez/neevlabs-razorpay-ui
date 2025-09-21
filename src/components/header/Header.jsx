@@ -29,28 +29,28 @@ const Header = () => {
   };
 
   return (
-    <header className="header-style pb-0">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-4 lg:space-x-8">
-          <div className="flex items-center space-x-2 min-w-48 flex-shrink-0">
-            <img
+    <header className="header-style ">
+      <div className="flex items-center justify-between ">
+        <div className="flex items-end space-x-4 lg:space-x-8 pt-2 ">
+          <div className="flex items-center space-x-2 flex-shrink-0 lg:min-w-34 ">
+           <a href="/"  className="h-12 w-auto object-contain"> <img
               src={logo}
               alt="Razorpay"
               className="h-12 w-auto object-contain"
-            />
+            /></a>
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-2 items-center">
-            <NavLink href="/dashboard" icon={Home} active={isActive('/dashboard')}>
+          <nav className="hidden lg:flex space-x-2 items-end">
+            <NavLink href="/home/dashboard" icon={Home} active={isActive('/home/dashboard')}>
               Razorpay Home
             </NavLink>
-            <NavLink href="/payments" icon={CreditCard} active={isActive('/payments')}>
+            <NavLink href="/home/payments" icon={CreditCard} active={isActive('/home/payments')}>
               Payments
             </NavLink>
-            <NavDropdown label="Banking" pageKey="banking" active={isActive('/banking')} />
-            <NavDropdown label="Payroll" icon={Wallet} pageKey="payroll" active={isActive('/payroll')} />
-            <NavDropdown label="More" icon={CreditCard} pageKey="more" active={isActive('/more')} />
+            <NavDropdown label="Banking" pageKey="banking" active={isActive('/home/banking')} />
+            <NavDropdown label="Payroll" icon={Wallet} pageKey="payroll" active={isActive('/home/payroll')} />
+            <NavDropdown label="More" icon={CreditCard} pageKey="more" active={isActive('/home/more')} />
           </nav>
           
           {/* Mobile Menu Button */}

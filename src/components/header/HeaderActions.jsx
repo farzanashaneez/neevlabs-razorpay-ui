@@ -7,7 +7,7 @@ const HeaderActions = () => {
   return (
     <>
       {/* Desktop View */}
-      <div className="hidden lg:flex items-center bg-white rounded-lg h-full min-h-[48px] px-4 shadow-sm border border-gray-200">
+      <div className="hidden lg:flex items-center bg-white  h-full min-h-[48px] px-4  border border-gray-200">
         {/* Search Section */}
         <div className="flex items-center flex-1 min-w-0">
           <Search className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />

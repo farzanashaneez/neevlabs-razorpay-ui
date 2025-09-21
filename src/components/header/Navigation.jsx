@@ -50,7 +50,7 @@ const DropdownMenu = ({ icon: Icon, label, pageKey, active = false }) => {
             {Object.entries(subcategories).map(([subKey, subData], index) => (
               <React.Fragment key={subKey}>
                 <a
-                  href={`/${pageKey}/${subKey}`}
+                  href={`/home/${pageKey}/${subKey}`}
                   className="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
@@ -76,7 +76,7 @@ const NavDropdown = ({ icon: Icon, label, pageKey, active = false }) => {
     // If no subcategories, render as regular link
     return (
       <a
-        href={`/${pageKey}`}
+        href={`/home/${pageKey}`}
         className={`flex items-center whitespace-nowrap text-[8px] sm:text-xs transition-colors hover:text-gray-900 px-2 py-3 leading-none ${
           active ? "nav-active" : "text-gray-600"
         }`}
