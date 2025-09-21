@@ -37,8 +37,8 @@ const InsightCard = ({
     <div className={`bg-white rounded-lg p-6 border border-gray-200 ${className}`}>
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
-        <div className="flex-1">
-          <h3 className="text-sm font-medium text-gray-700 flex items-center gap-2">
+        <div className="flex-1 pt-1">
+          <h3 className="text-sm font-semibold text-gray-900 flex items-center gap-2">
             {title} <Info className="w-4 h-4 text-gray-400" />
           </h3>
           <p className="text-xs text-gray-500 mt-1">Last week</p>
@@ -56,9 +56,9 @@ const InsightCard = ({
       {/* Value and Change */}
       <div className="flex items-end justify-between">
         <div className="flex-1">
-          <div className="text-3xl font-bold text-gray-900 mb-2">{value}</div>
+          <div className="text-xl font-bold text-gray-900 mb-2">{value}</div>
           {change !== 0 && comparison && (
-            <div className={`flex items-center gap-1 text-sm ${getTrendColor(trend)}`}>
+            <div className={`flex items-center gap-1 text-xs ${getTrendColor(trend)}`}>
               {getTrendIcon(trend)}
               <span className="font-medium">{Math.abs(change)}</span>
               <span>{comparison}</span>
@@ -68,7 +68,7 @@ const InsightCard = ({
 
         {/* View Details Button */}
         <div className="ml-4">
-          <button className="text-blue-600 text-sm flex items-center gap-1 hover:text-blue-700 whitespace-nowrap">
+          <button className="text-blue-800 text-xs font-medium flex items-center gap-1 hover:text-blue-700 whitespace-nowrap">
             View Details <ArrowRight className="w-4 h-4" />
           </button>
         </div>

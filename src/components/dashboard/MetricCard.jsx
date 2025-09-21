@@ -23,7 +23,7 @@ const MetricCard = ({ title, value, percentage, trend, comparison, isActive, onC
         className={`p-6  cursor-pointer transition-all duration-200 hover:shadow-md ${
           isActive 
             ? ' bg-white border-b-1 border-b-blue-600 shadow-sm' 
-            : 'bg-insight border-gray-200 hover:border-gray-300'
+            : 'bg-insight border-b-1 border-b-blue-200 hover:border-gray-300'
         }`}
       >
         <div className="flex items-center justify-between mb-4">
@@ -38,6 +38,12 @@ const MetricCard = ({ title, value, percentage, trend, comparison, isActive, onC
             {percentage !== 0 && (
               <div className={`flex items-center gap-1 ${getTrendColor(trend)}`}>
                 {getTrendIcon(trend)}
+                <span className="text-sm font-medium">{Math.abs(percentage)}%</span>
+              </div>
+            )}
+             {percentage === 0 && (
+              <div className={`flex items-center gap-1 ${getTrendColor(trend)}`}>
+                {getTrendIcon('down')}
                 <span className="text-sm font-medium">{Math.abs(percentage)}%</span>
               </div>
             )}

@@ -130,7 +130,7 @@ const PaymentsDashboard = () => {
           />
           
           {/* Payment Method Split - Spans 2 columns on medium screens, 1 on xl */}
-          <div className="md:col-span-2 xl:col-span-1">
+          <div >
             <PieChart 
               data={data.paymentMethods}
               title="Payment method split"
