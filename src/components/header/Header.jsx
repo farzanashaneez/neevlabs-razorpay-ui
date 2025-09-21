@@ -73,12 +73,12 @@ const Header = () => {
         <div className="lg:hidden mt-3 pt-3 border-t border-gray-200">
           <nav className="space-y-1">
             {/* Dashboard */}
-            <MobileNavLink href="/dashboard" icon={Home} active={isActive('/dashboard')}>
+            <MobileNavLink href="/home/dashboard" icon={Home} active={isActive('/dashboard')}>
               Razorpay Home
             </MobileNavLink>
             
             {/* Payments */}
-            <MobileNavLink href="/payments" icon={CreditCard} active={isActive('/payments')}>
+            <MobileNavLink href="/home/payments" icon={CreditCard} active={isActive('/payments')}>
               Payments
             </MobileNavLink>
             
