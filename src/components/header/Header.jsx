@@ -30,8 +30,8 @@ const Header = () => {
 
   return (
     <header className="header-style ">
-      <div className="flex items-center justify-between ">
-        <div className="flex items-end space-x-4 lg:space-x-8 pt-2 ">
+      <div className="flex items-center justify-between">
+        <div className="flex items-end space-x-4 lg:space-x-8 mt-2 ">
           <div className="flex items-center space-x-2 flex-shrink-0 lg:min-w-34 ">
            <a href="/"  className="h-12 w-auto object-contain"> <img
               src={logo}

@@ -5,7 +5,7 @@ import pageInfo from "../../data/pageInfo";
 const NavLink = ({ href, icon: Icon, children, active = false }) => (
   <a
     href={href}
-    className={`flex items-center whitespace-nowrap text-[8px] sm:text-xs transition-colors hover:text-gray-900 px-2 py-3 leading-none ${
+    className={`flex items-center whitespace-nowrap text-[8px] sm:text-xs transition-colors hover:text-gray-900 px-2 py-2 leading-none ${
       active ? "nav-active" : "text-gray-600"
     }`}
   >

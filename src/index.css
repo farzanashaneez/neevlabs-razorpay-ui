@@ -24,7 +24,7 @@
   .header-style {
     background-color: rgb(var(--color-bg-header));
     /* padding-bottom: 0 px; */
-    @apply px-4 lg:pl-6 pb-0 sticky top-0 z-5 min-h-0;
+    @apply pl-4 pr-0.5 lg:pl-6 py-0 sticky top-0 z-5 min-h-0;
   }
   .nav-active{
     background-color:rgb(var(--color-bg-active));

@@ -201,7 +201,7 @@ const Dashboard = ({ page, description, isHome = false, title }) => {
   return (
     <div className="dashboard min-h-screen">
       {/* Fixed Header */}
-      <div className="fixed top-0 left-0 right-0 z-100 bg-white shadow-sm">
+      <div className="fixed top-0 left-0 right-0 z-100 bg-white ">
         {isHome && <Header />}
         {!isHome && (
           <HeaderDefault title={title} onMobileMenuToggle={toggleSidebar} />

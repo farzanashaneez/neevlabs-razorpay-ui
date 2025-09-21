@@ -7,26 +7,26 @@ const HeaderActions = () => {
   return (
     <>
       {/* Desktop View */}
-      <div className="hidden lg:flex items-center bg-white  h-full min-h-[48px] px-4  border border-gray-200">
+      <div className="hidden lg:flex items-center bg-white  h-full min-h-[48px] px-4 ">
         {/* Search Section */}
-        <div className="flex items-center flex-1 min-w-0">
-          <Search className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
+        <div className="flex items-center flex-1 min-w-23 h-8 border  border-gray-200 rounded-md">
+          <Search className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0 pl-1" />
           <input
             type="text"
-            placeholder="Search payment products, settings, and more"
+            placeholder="Search"
             className="w-full bg-transparent border-none outline-none text-gray-600 placeholder-gray-400 text-sm"
           />
         </div>
         
         {/* Action Buttons */}
-        <div className="flex items-center space-x-2 ml-4 border-l border-gray-200 pl-4">
-          <button className="p-2 hover:bg-gray-100 rounded-md transition-colors">
+        <div className="flex items-center space-x-2 ml-4 ">
+          <button className="p-2 bg-gray-100 rounded-md transition-colors">
             <TrendingUp className="w-5 h-5 text-gray-600" />
           </button>
-          <button className="p-2 hover:bg-gray-100 rounded-md transition-colors">
+          <button className="p-2 bg-gray-100 rounded-md transition-colors">
             <Megaphone className="w-5 h-5 text-gray-600" />
           </button>
-          <button className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors">
+          <button className="w-8 h-8 bg-gray-100 rounded-md flex items-center justify-center text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors">
             NL
           </button>
         </div>
