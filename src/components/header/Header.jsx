@@ -95,7 +95,7 @@ const Header = () => {
               {expandedMobileItems.banking && pageInfo.banking.subcategories && (
                 <div className="ml-4 mt-1 space-y-1">
                   {Object.entries(pageInfo.banking.subcategories).map(([subKey, subData]) => (
-                    <MobileSubLink key={subKey} href={`/banking/${subKey}`} active={isActive(`/banking/${subKey}`)}>
+                    <MobileSubLink key={subKey} href={`/home/banking/${subKey}`} active={isActive(`/home/banking/${subKey}`)}>
                       {subData.title}
                     </MobileSubLink>
                   ))}
@@ -116,7 +116,7 @@ const Header = () => {
               {expandedMobileItems.payroll && pageInfo.payroll.subcategories && (
                 <div className="ml-4 mt-1 space-y-1">
                   {Object.entries(pageInfo.payroll.subcategories).map(([subKey, subData]) => (
-                    <MobileSubLink key={subKey} href={`/payroll/${subKey}`} active={isActive(`/payroll/${subKey}`)}>
+                    <MobileSubLink key={subKey} href={`/home/payroll/${subKey}`} active={isActive(`/home/payroll/${subKey}`)}>
                       {subData.title}
                     </MobileSubLink>
                   ))}
@@ -137,7 +137,7 @@ const Header = () => {
               {expandedMobileItems.more && pageInfo.more.subcategories && (
                 <div className="ml-4 mt-1 space-y-1">
                   {Object.entries(pageInfo.more.subcategories).map(([subKey, subData]) => (
-                    <MobileSubLink key={subKey} href={`/more/${subKey}`} active={isActive(`/more/${subKey}`)}>
+                    <MobileSubLink key={subKey} href={`/home/more/${subKey}`} active={isActive(`/home/more/${subKey}`)}>
                       {subData.title}
                     </MobileSubLink>
                   ))}

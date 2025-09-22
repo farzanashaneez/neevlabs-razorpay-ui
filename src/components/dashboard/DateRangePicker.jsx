@@ -6,14 +6,14 @@ const DateRangePicker = ({ dateRange, period, onPeriodChange }) => {
     
     return (
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg text-sm">
+        <div className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg text:[8px] md:text-xs">
           <Calendar className="w-4 h-4 text-gray-500" />
           <span>{dateRange}</span>
         </div>
         <div className="relative">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg text-sm hover:bg-gray-50"
+            className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg text:[8px] md:text-xs hover:bg-gray-50"
           >
             {period}
             <ChevronDown className="w-4 h-4" />
@@ -28,7 +28,7 @@ const DateRangePicker = ({ dateRange, period, onPeriodChange }) => {
                       onPeriodChange(option);
                       setIsOpen(false);
                     }}
-                    className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-50"
+                    className="block w-full text-left px-4 py-2 text:[8px] md:text-xs hover:bg-gray-50"
                   >
                     {option}
                   </button>
